@@ -66,6 +66,13 @@ struct ContentView: View {
             WebView(htmlContent: store.currentHTML)
                 .ignoresSafeArea()
             
+            if store.isLoading && store.currentHTML.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                Text("正在生成中...")
+                    .font(.headline)
+                    .foregroundColor(.appTextSecondary)
+                    .padding()
+            }
+            
             VStack {
                 Spacer()
                 
