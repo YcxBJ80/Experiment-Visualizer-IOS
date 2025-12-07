@@ -129,7 +129,6 @@ struct ContentView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-        .background(Color.appBackground.opacity(0.95))
     }
     
     // MARK: - 发送消息
