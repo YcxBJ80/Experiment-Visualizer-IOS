@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0C6D3C422EE503FB00942323 /* Experiment Visualizer.icon in Resources */ = {isa = PBXBuildFile; fileRef = 0C6D3C412EE503FB00942323 /* Experiment Visualizer.icon */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		0C6D3C412EE503FB00942323 /* Experiment Visualizer.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "Experiment Visualizer.icon"; sourceTree = "<group>"; };
 		0CFBDC0F2EE44EF600EB33FF /* Experiment Visualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Experiment Visualizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -34,6 +39,7 @@
 			children = (
 				0CFBDC112EE44EF600EB33FF /* Experiment Visualizer */,
 				0CFBDC102EE44EF600EB33FF /* Products */,
+				0C6D3C412EE503FB00942323 /* Experiment Visualizer.icon */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6D3C422EE503FB00942323 /* Experiment Visualizer.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +251,7 @@
 		0CFBDC1B2EE44EF700EB33FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Experiment Visualizer";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -288,7 +295,7 @@
 		0CFBDC1C2EE44EF700EB33FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Experiment Visualizer";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
