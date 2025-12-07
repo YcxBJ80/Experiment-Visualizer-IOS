@@ -68,7 +68,12 @@ struct WebView: PlatformViewRepresentable {
                     font-size: 16px;
                     line-height: 1.6;
                     min-height: 100vh;
+                    cursor: grab;
+                    user-select: none;
+                    -webkit-user-select: none;
+                    touch-action: pan-x pan-y;
                 }
+                body.dragging { cursor: grabbing; }
                 a { color: #6ECBD3; }
                 pre, code {
                     background-color: #1C1C21;
@@ -84,6 +89,47 @@ struct WebView: PlatformViewRepresentable {
         </head>
         <body>
         \(htmlContent)
+        <script>
+            (function() {
+                const body = document.body;
+                let dragging = false;
+                let startX = 0, startY = 0, startScrollX = 0, startScrollY = 0;
+
+                const isFormControl = (el) => el && el.closest('input, textarea, select, button, a');
+
+                body.addEventListener('pointerdown', (e) => {
+                    if (isFormControl(e.target)) return;
+                    dragging = true;
+                    body.classList.add('dragging');
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    startScrollX = window.scrollX;
+                    startScrollY = window.scrollY;
+                    body.setPointerCapture?.(e.pointerId);
+                });
+
+                body.addEventListener('pointermove', (e) => {
+                    if (!dragging) return;
+                    const dx = e.clientX - startX;
+                    const dy = e.clientY - startY;
+                    window.scrollTo({
+                        left: startScrollX - dx,
+                        top: startScrollY - dy,
+                        behavior: 'auto'
+                    });
+                });
+
+                const endDrag = (e) => {
+                    if (!dragging) return;
+                    dragging = false;
+                    body.classList.remove('dragging');
+                    body.releasePointerCapture?.(e.pointerId);
+                };
+
+                body.addEventListener('pointerup', endDrag);
+                body.addEventListener('pointercancel', endDrag);
+            })();
+        </script>
         </body>
         </html>
         """
